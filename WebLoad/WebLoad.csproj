@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B17BA140-E3F4-42A1-AB37-2FB7AC95AFBB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebLoad</RootNamespace>
+    <AssemblyName>WebLoad</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CefSharp, Version=55.0.0.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\CefSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Core, Version=55.0.0.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\CefSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.Example, Version=55.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\CefSharp.Example.dll</HintPath>
+    </Reference>
+    <Reference Include="CefSharp.WinForms, Version=55.0.0.0, Culture=neutral, PublicKeyToken=40c4b6fc221f4138, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\CefSharp.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="Npgsql, Version=2.2.0.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAL\DBHelper.cs" />
+    <Compile Include="DAL\NpgsqlDBHelper.cs" />
+    <Compile Include="FMMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMMain.Designer.cs">
+      <DependentUpon>FMMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMText.Designer.cs">
+      <DependentUpon>FMText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JSON.cs" />
+    <Compile Include="MData.cs" />
+    <Compile Include="Model\TTiebaFloor.cs" />
+    <Compile Include="Model\TTiebaItem.cs" />
+    <Compile Include="Model\TTieba.cs" />
+    <Compile Include="MSetting.cs" />
+    <Compile Include="MyAsync.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FMMain.resx">
+      <DependentUpon>FMMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMText.resx">
+      <DependentUpon>FMText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="DLL\cef.pak" />
+    <None Include="DLL\CefSharp.BrowserSubprocess.exe.config" />
+    <None Include="DLL\CefSharp.Core.bsc" />
+    <None Include="DLL\CefSharp.Core.exp" />
+    <None Include="DLL\CefSharp.Core.lib" />
+    <None Include="DLL\cef_100_percent.pak" />
+    <None Include="DLL\cef_200_percent.pak" />
+    <None Include="DLL\cef_extensions.pak" />
+    <None Include="DLL\devtools_resources.pak" />
+    <None Include="DLL\icudtl.dat" />
+    <None Include="DLL\natives_blob.bin" />
+    <None Include="DLL\snapshot_blob.bin" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebLoadPlugin\WebLoadPlugin.csproj">
+      <Project>{34508d0e-8121-48e5-ac28-ac4958e761dc}</Project>
+      <Name>WebLoadPlugin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DLL\CefSharp.BrowserSubprocess.Core.dll" />
+    <Content Include="DLL\CefSharp.BrowserSubprocess.Core.pdb" />
+    <Content Include="DLL\CefSharp.BrowserSubprocess.exe" />
+    <Content Include="DLL\CefSharp.BrowserSubprocess.pdb" />
+    <Content Include="DLL\CefSharp.Core.dll" />
+    <Content Include="DLL\CefSharp.Core.pdb" />
+    <Content Include="DLL\CefSharp.Core.xml" />
+    <Content Include="DLL\CefSharp.dll" />
+    <Content Include="DLL\CefSharp.Example.dll" />
+    <Content Include="DLL\CefSharp.Example.pdb" />
+    <Content Include="DLL\CefSharp.pdb" />
+    <Content Include="DLL\CefSharp.WinForms.dll" />
+    <Content Include="DLL\d3dcompiler_43.dll" />
+    <Content Include="DLL\d3dcompiler_47.dll" />
+    <Content Include="DLL\libcef.dll" />
+    <Content Include="DLL\libEGL.dll" />
+    <Content Include="DLL\libGLESv2.dll" />
+    <Content Include="DLL\Mono.Security.dll" />
+    <Content Include="DLL\Npgsql.dll" />
+    <Content Include="DLL\widevinecdmadapter.dll" />
+    <None Include="Resources\new.png" />
+    <None Include="Resources\del.png" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\play.png" />
+    <None Include="Resources\up2.png" />
+    <None Include="Resources\up.png" />
+    <None Include="Resources\right.png" />
+    <None Include="Resources\left.png" />
+    <None Include="Resources\down2.png" />
+    <None Include="Resources\down.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /e /r /y $(ProjectDir)DLL\* $(SolutionDir)WebLoad\$(OutDir)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
