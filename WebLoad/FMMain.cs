@@ -135,6 +135,9 @@ namespace WebLoad
         private void FMMain_Load(object sender, EventArgs e)
         {
             LoadSetting(this.settingPath);
+        }
+        private void BindData()
+        {
             PluginInit();
             bsItems.DataSource = mSetting.ListItems;
             bsPlay.DataSource = mSetting.ListPlay;
@@ -169,23 +172,36 @@ namespace WebLoad
                 browser.GetFocusedFrame().GetResponseReturn(script).ContinueWith(task =>
                 {
                     //string json = JsonConvert.SerializeObject(dt);
-                    if (task.Result != null)
+                    try
+                    {
+                        if (task.Result != null)
+                        {
+                            Action actionDelegate = () =>
+                            {
+                                txtMsg.Text += "\r\n\r\n=================================\r\n\r\n";
+                                txtMsg.Text += task.Result;
+                                txtMsg.Select(txtMsg.Text.Length, 0);
+                            };
+                            this.Invoke(actionDelegate, null);
+                            DataTable dt = JsonConvert.DeserializeObject<DataTable>(task.Result);
+                            mSetItem.FJSData = dt;
+                            if (!String.IsNullOrEmpty(mSetItem.FSql) && dbHelper != null)
+                                dbHelper.RunSql(mSetItem.FSql, dt);//执行SQL
+                        }
+                        else
+                        {
+                            mSetItem.FJSData = null;
+                        }
+                    }
+                    catch (Exception ex)
                     {
                         Action actionDelegate = () =>
                         {
-                            txtMsg.Text += "\r\n\r\n=================================\r\n\r\n";
-                            txtMsg.Text += task.Result;
-                            txtMsg.Select(txtMsg.Text.Length, 0);
+                            txtMsg.Text += "\r\n\r\n================错误=============\r\n\r\n";
+                            txtMsg.Text += ex.ToString();
+                            txtMsg.Select(txtMsg.Text.Length, 1);
                         };
                         this.Invoke(actionDelegate, null);
-                        DataTable dt = JsonConvert.DeserializeObject<DataTable>(task.Result);
-                        mSetItem.FJSData = dt;
-                        if (!String.IsNullOrEmpty(mSetItem.FSql) && dbHelper != null)
-                            dbHelper.RunSql(mSetItem.FSql, dt);//执行SQL
-                    }
-                    else
-                    {
-                        mSetItem.FJSData = null;
                     }
 
                     Run();
@@ -301,6 +317,7 @@ namespace WebLoad
             {
                 mSetting = new MSetting();
             }
+            BindData();
         }
         /// <summary>
         /// 保存设置
@@ -499,6 +516,25 @@ namespace WebLoad
         private void dgvPluginProperty_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void tsbtnSaveAs_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                SaveSetting(sfd.FileName);
+            }
+        }
+
+        private void tsbtnLoad_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                LoadSetting(ofd.FileName);
+                SaveSetting(this.settingPath);
+            }
         }
     }
 }

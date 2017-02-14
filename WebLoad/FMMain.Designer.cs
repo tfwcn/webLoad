@@ -72,13 +72,17 @@
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvPlugin = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgvPluginProperty = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbtnSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbtnLoad = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -109,6 +113,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlugin)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPluginProperty)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -118,10 +123,10 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(0, 25);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(900, 587);
+            this.tabControl1.Size = new System.Drawing.Size(900, 562);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -130,7 +135,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(892, 561);
+            this.tabPage1.Size = new System.Drawing.Size(892, 536);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "条件设置";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -149,7 +154,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
-            this.splitContainer1.Size = new System.Drawing.Size(886, 555);
+            this.splitContainer1.Size = new System.Drawing.Size(886, 530);
             this.splitContainer1.SplitterDistance = 610;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -159,7 +164,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(610, 555);
+            this.groupBox1.Size = new System.Drawing.Size(610, 530);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "条件";
@@ -178,8 +183,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dgvItems);
-            this.splitContainer2.Size = new System.Drawing.Size(604, 535);
-            this.splitContainer2.SplitterDistance = 274;
+            this.splitContainer2.Size = new System.Drawing.Size(604, 510);
+            this.splitContainer2.SplitterDistance = 261;
             this.splitContainer2.TabIndex = 6;
             // 
             // panel1
@@ -195,7 +200,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(604, 274);
+            this.panel1.Size = new System.Drawing.Size(604, 261);
             this.panel1.TabIndex = 1;
             // 
             // tabControl2
@@ -209,7 +214,7 @@
             this.tabControl2.Multiline = true;
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(504, 198);
+            this.tabControl2.Size = new System.Drawing.Size(504, 185);
             this.tabControl2.TabIndex = 9;
             // 
             // tabPage4
@@ -218,7 +223,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(496, 172);
+            this.tabPage4.Size = new System.Drawing.Size(496, 159);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "筛选条件(JS)";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -230,7 +235,7 @@
             this.txtFJavascript.Multiline = true;
             this.txtFJavascript.Name = "txtFJavascript";
             this.txtFJavascript.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtFJavascript.Size = new System.Drawing.Size(490, 166);
+            this.txtFJavascript.Size = new System.Drawing.Size(490, 153);
             this.txtFJavascript.TabIndex = 5;
             // 
             // tabPage5
@@ -334,7 +339,7 @@
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
             this.dgvItems.RowTemplate.Height = 23;
-            this.dgvItems.Size = new System.Drawing.Size(604, 257);
+            this.dgvItems.Size = new System.Drawing.Size(604, 245);
             this.dgvItems.TabIndex = 0;
             this.dgvItems.Click += new System.EventHandler(this.dgvItems_Click);
             // 
@@ -368,7 +373,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(34, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(238, 555);
+            this.groupBox2.Size = new System.Drawing.Size(238, 530);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "执行顺序";
@@ -385,7 +390,7 @@
             this.dgvPlayList.Name = "dgvPlayList";
             this.dgvPlayList.ReadOnly = true;
             this.dgvPlayList.RowTemplate.Height = 23;
-            this.dgvPlayList.Size = new System.Drawing.Size(232, 535);
+            this.dgvPlayList.Size = new System.Drawing.Size(232, 510);
             this.dgvPlayList.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -415,7 +420,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.toolStrip1.Size = new System.Drawing.Size(34, 555);
+            this.toolStrip1.Size = new System.Drawing.Size(34, 530);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -625,6 +630,31 @@
             this.dgvPlugin.TabIndex = 1;
             this.dgvPlugin.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlugin_CellClick);
             // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "PFilePath";
+            this.dataGridViewTextBoxColumn2.HeaderText = "文件名";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 66;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "PText";
+            this.dataGridViewTextBoxColumn3.HeaderText = "描述";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn3.Width = 54;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "PEnable";
+            this.Column4.HeaderText = "启用";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 35;
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dgvPluginProperty);
@@ -671,30 +701,38 @@
             this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTextBoxColumn6.Width = 42;
             // 
-            // dataGridViewTextBoxColumn2
+            // menuStrip1
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "PFilePath";
-            this.dataGridViewTextBoxColumn2.HeaderText = "文件名";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 66;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.文件ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(900, 25);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // dataGridViewTextBoxColumn3
+            // 文件ToolStripMenuItem
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "PText";
-            this.dataGridViewTextBoxColumn3.HeaderText = "描述";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn3.Width = 54;
+            this.文件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbtnSaveAs,
+            this.tsbtnLoad});
+            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
+            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.文件ToolStripMenuItem.Text = "文件";
             // 
-            // Column4
+            // tsbtnSaveAs
             // 
-            this.Column4.DataPropertyName = "PEnable";
-            this.Column4.HeaderText = "启用";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 35;
+            this.tsbtnSaveAs.Name = "tsbtnSaveAs";
+            this.tsbtnSaveAs.Size = new System.Drawing.Size(152, 22);
+            this.tsbtnSaveAs.Text = "配置另存为";
+            this.tsbtnSaveAs.Click += new System.EventHandler(this.tsbtnSaveAs_Click);
+            // 
+            // tsbtnLoad
+            // 
+            this.tsbtnLoad.Name = "tsbtnLoad";
+            this.tsbtnLoad.Size = new System.Drawing.Size(152, 22);
+            this.tsbtnLoad.Text = "导入配置";
+            this.tsbtnLoad.Click += new System.EventHandler(this.tsbtnLoad_Click);
             // 
             // FMMain
             // 
@@ -702,6 +740,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 587);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FMMain";
             this.Text = "网页收集器";
             this.Load += new System.EventHandler(this.FMMain_Load);
@@ -741,7 +781,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlugin)).EndInit();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPluginProperty)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -798,5 +841,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column4;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsbtnSaveAs;
+        private System.Windows.Forms.ToolStripMenuItem tsbtnLoad;
     }
 }
